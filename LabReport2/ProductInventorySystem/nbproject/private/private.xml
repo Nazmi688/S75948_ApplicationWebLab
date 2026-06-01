@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Lab%202/ProductInventorySystem/src/java/com/lab/controller/DeleteProductServlet.java</file>
+            <file>file:/C:/Lab%202/ProductInventorySystem/web/add_html.html</file>
+            <file>file:/C:/Lab%202/ProductInventorySystem/web/index.html</file>
+            <file>file:/C:/Lab%202/ProductInventorySystem/src/java/com/lab/controller/InsertProductServlet.java</file>
+            <file>file:/C:/Lab%202/ProductInventorySystem/src/java/com/lab/controller/UpdateProductServlet.java</file>
+            <file>file:/C:/Lab%202/ProductInventorySystem/src/java/com/lab/controller/ViewProductServlet.java</file>
+            <file>file:/C:/Lab%202/ProductInventorySystem/src/java/com/lab/dao/ProductDAO.java</file>
+            <file>file:/C:/Lab%202/ProductInventorySystem/src/java/com/lab/model/Product.java</file>
+        </group>
+    </open-files>
+</project-private>
