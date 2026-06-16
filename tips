@@ -1,0 +1,353 @@
+Step 1: Understand the Project Flow First
+
+Imagine a user wants to add an employee.
+
+User fills form
+      ↓
+EmployeeForm.jsp
+      ↓
+EmployeeServlet
+      ↓
+EmployeeDAO
+      ↓
+MySQL Database
+      ↓
+EmployeeServlet
+      ↓
+EmployeeList.jsp
+
+Whenever you see code, ask:
+
+"Which part of this flow am I looking at?"
+
+Step 2: Learn the Files by Their Jobs
+
+Instead of reading code, identify the purpose.
+
+Employee.java
+
+Ask:
+
+"What is this file storing?"
+
+Answer:
+
+id
+name
+email
+position
+
+This file is just a container.
+
+Think:
+
+Employee emp =
+new Employee(
+    "Ali",
+    "ali@gmail.com",
+    "Manager"
+);
+
+Like a student record card.
+
+EmployeeDAO.java
+
+Ask:
+
+"What SQL is this method performing?"
+
+insertEmployee()
+INSERT INTO employees ...
+
+Meaning:
+
+Create new employee
+selectEmployee()
+SELECT ...
+WHERE id=?
+
+Meaning:
+
+Find one employee
+selectAllEmployees()
+SELECT * FROM employees
+
+Meaning:
+
+Get all employees
+updateEmployee()
+UPDATE employees
+
+Meaning:
+
+Modify employee
+deleteEmployee()
+DELETE FROM employees
+
+Meaning:
+
+Remove employee
+
+Don't memorize Java.
+
+Memorize:
+
+Method → SQL → Purpose
+Step 3: Understand the Servlet Like a Traffic Police
+
+Look at this:
+
+switch(action)
+
+Think:
+
+User clicked something
+↓
+Servlet checks action
+↓
+Go to correct method
+If URL is
+/new
+
+Servlet executes:
+
+showNewForm()
+
+Meaning:
+
+Open empty form
+If URL is
+/insert
+
+Servlet executes:
+
+insertEmployee()
+
+Meaning:
+
+Save data
+If URL is
+/edit?id=1
+
+Servlet executes:
+
+showEditForm()
+
+Meaning:
+
+Load existing employee
+If URL is
+/update
+
+Servlet executes:
+
+updateEmployee()
+
+Meaning:
+
+Update database
+If URL is
+/delete?id=1
+
+Servlet executes:
+
+deleteEmployee()
+
+Meaning:
+
+Delete employee
+Step 4: Read JSP Like HTML First
+
+Many students panic because they see JSTL.
+
+Don't.
+
+Example:
+
+<c:forEach var="employee"
+items="${listEmployee}">
+
+Translate to English:
+
+For every employee
+inside listEmployee
+
+Example:
+
+<c:out value="${employee.name}" />
+
+Translate:
+
+Display employee name
+
+Example:
+
+<c:if test="${employee != null}">
+
+Translate:
+
+If employee exists
+
+Never read JSTL as code.
+
+Read it as English.
+
+Step 5: Follow One Variable
+
+Suppose you see:
+
+String name =
+request.getParameter("name");
+
+Ask:
+
+Where did name come from?
+
+Search.
+
+You'll find:
+
+<input name="name">
+
+So:
+
+Textbox
+↓
+request.getParameter()
+↓
+Java variable
+
+Always trace variables like this.
+
+Step 6: Understand Request Attributes
+
+This is the most important line:
+
+request.setAttribute(
+    "listEmployee",
+    listEmployee
+);
+
+Meaning:
+
+Send data to JSP
+
+Then JSP uses:
+
+${listEmployee}
+
+Think:
+
+Servlet gives
+JSP receives
+
+That's it.
+
+Step 7: Learn to Ask These 5 Questions
+
+Whenever you see a code block, ask:
+
+Question 1
+
+What file am I in?
+
+Model?
+View?
+Controller?
+Question 2
+
+Where is the data coming from?
+
+Form?
+Database?
+Servlet?
+Question 3
+
+Where is the data going?
+
+Database?
+JSP?
+Another Servlet?
+Question 4
+
+Which CRUD operation is this?
+
+Create?
+Read?
+Update?
+Delete?
+Question 5
+
+What SQL statement does this represent?
+
+INSERT?
+SELECT?
+UPDATE?
+DELETE?
+Quick Way to Read Any MVC Code
+
+When you see code:
+
+In DAO
+
+Think:
+
+Database work
+In Servlet
+
+Think:
+
+Control flow
+In JSP
+
+Think:
+
+Display data
+In JavaBean
+
+Think:
+
+Store data
+What You Should Actually Memorize
+
+Only memorize:
+
+Employee.java
+    ↓
+Stores data
+
+EmployeeDAO.java
+    ↓
+Database operations
+
+EmployeeServlet.java
+    ↓
+Controls requests
+
+EmployeeForm.jsp
+    ↓
+Add/Edit page
+
+EmployeeList.jsp
+    ↓
+Display page
+
+request.setAttribute()
+    ↓
+Send data to JSP
+
+${...}
+    ↓
+Display data in JSP
+
+<c:forEach>
+    ↓
+Loop
+
+<c:if>
+    ↓
+Condition
+
+<c:out>
+    ↓
+Print value
